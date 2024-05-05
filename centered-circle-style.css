@@ -1,0 +1,50 @@
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div {
+  height: 600px;
+  width: 600px;
+}
+
+.subpart {
+  height: 50%;
+  width: 100%;
+  display: flex;
+}
+
+#part1 {
+  background-color: #db4f21;
+}
+
+#part2 {
+  background-color: #dae83c;
+}
+
+#part3 {
+  background-color: #7fe82e;
+}
+
+#part4 {
+  background-color: #3ed9de;
+}
+
+.circle {
+  height: 100%;
+  width: 50%;
+  border-radius: 50%;
+}

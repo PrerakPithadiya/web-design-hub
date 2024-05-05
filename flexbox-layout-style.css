@@ -1,0 +1,34 @@
+* {
+  padding: 0%;
+  margin: 0%;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+#first {
+  height: 50%;
+  width: 50%;
+  background-color: #cd1414;
+  display: flex;
+}
+#first1 {
+  height: 100%;
+  width: 50%;
+  background-color: #43eb0b;
+}
+
+#first2 {
+  height: 100%;
+  width: 50%;
+  background-color: #e29f10;
+}
+
+#second {
+  height: 50%;
+  width: 25%;
+  background: #e7478d;
+}
