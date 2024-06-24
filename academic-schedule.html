@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timetable</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 90%;
+        max-width: 800px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        background-color: #fff;
+      }
+
+      th,
+      td {
+        padding: 15px;
+        text-align: center;
+        border: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #00897b;
+        color: white;
+        font-weight: 700;
+      }
+
+      tr:nth-child(even) {
+        background-color: #e0f2f1;
+      }
+
+      tr:hover {
+        background-color: #b2dfdb;
+      }
+
+      .recess {
+        background-color: #f4511e;
+        color: white;
+        font-weight: 700;
+      }
+
+      .subject {
+        font-weight: 700;
+      }
+
+      .highlight {
+        background-color: #ffeb3b;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>SR NO</th>
+          <th>Monday</th>
+          <th>Tuesday</th>
+          <th>Wednesday</th>
+          <th>Thursday</th>
+          <th>Friday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="subject">Quantum Mechanics</td>
+          <td class="subject">Linear Algebra</td>
+          <td class="subject">English Literature</td>
+          <td class="subject">Data Structures</td>
+          <td class="subject">Organic Chemistry</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td class="subject">Genetics</td>
+          <td class="subject">Statistics</td>
+          <td class="subject">World History</td>
+          <td class="subject">Web Development</td>
+          <td class="subject">Inorganic Chemistry</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td class="subject">Electromagnetism</td>
+          <td class="subject">Language Studies</td>
+          <td class="subject">Artificial Intelligence</td>
+          <td class="subject">Machine Learning</td>
+          <td class="subject">Biology Lab</td>
+        </tr>
+        <tr>
+          <td colspan="6" class="recess">RECESS</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td class="subject">Physical Chemistry</td>
+          <td class="subject">Calculus</td>
+          <td class="subject">Astrophysics</td>
+          <td class="subject">Literary Analysis</td>
+          <td class="subject">Analytical Chemistry</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td class="subject">Nanotechnology</td>
+          <td class="subject">Differential Equations</td>
+          <td class="subject">Creative Writing</td>
+          <td class="subject">Software Engineering</td>
+          <td class="subject">Biochemistry</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td class="subject">Environmental Science</td>
+          <td class="subject">Financial Management</td>
+          <td class="subject">Psychology</td>
+          <td class="subject">Computer Networks</td>
+          <td class="subject">Physical Education</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
