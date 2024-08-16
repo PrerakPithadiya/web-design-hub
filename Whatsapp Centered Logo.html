@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>WhatsApp Centered Logo</title>
+    <style>
+      /* Reset basic styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Body and background settings */
+      body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Poppins", sans-serif;
+        background: radial-gradient(
+          circle at top left,
+          #25d366,
+          #128c7e,
+          #075e54,
+          #03473f
+        );
+        background-attachment: fixed;
+        color: white;
+        overflow: hidden;
+      }
+
+      /* Container for the logo */
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+
+      /* WhatsApp logo styling with glassmorphism effect */
+      .logo {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 50px;
+        border-radius: 20px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        text-align: center;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+
+      /* WhatsApp logo image */
+      .logo img {
+        width: 150px;
+        height: auto;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      /* Logo hover effects */
+      .logo:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Image hover effect */
+      .logo img:hover {
+        transform: scale(1.2);
+      }
+
+      /* Floating animation for extra appeal */
+      .container::before {
+        content: "";
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        top: 10%;
+        left: 20%;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .container::after {
+        content: "";
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        bottom: 15%;
+        right: 15%;
+        animation: float-reverse 8s ease-in-out infinite;
+      }
+
+      /* Floating animations */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-30px);
+        }
+      }
+
+      @keyframes float-reverse {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(30px);
+        }
+      }
+
+      /* Media queries for responsiveness */
+      @media (max-width: 768px) {
+        .logo img {
+          width: 120px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .logo img {
+          width: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+          alt="WhatsApp Logo"
+        />
+      </div>
+    </div>
+  </body>
+</html>
