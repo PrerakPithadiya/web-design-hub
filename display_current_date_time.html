@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display Current Date and Time</title>
+    <style>
+      /* 
+      Styles for the body:
+      - Set font family
+      - Center content vertically and horizontally
+      - Set full viewport height
+      - Remove default margin
+      - Create animated gradient background
+      */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(45deg, #3498db, #8e44ad, #e74c3c, #2ecc71);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+      }
+
+      /* Keyframes for the gradient background animation */
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* 
+      Styles for the datetime display:
+      - Set font size and weight
+      - Apply text color and shadow
+      - Add background color with transparency
+      - Apply padding and border radius
+      - Add box shadow
+      - Set up transition for hover effect
+      - Center text
+      */
+      #datetime {
+        font-size: 3.5rem;
+        font-weight: bold;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+        transition: all 0.3s ease;
+        text-align: center;
+      }
+
+      /* Hover effect for the datetime display */
+      #datetime:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Container for displaying the date and time -->
+    <div id="datetime"></div>
+
+    <script>
+      /**
+       * Updates the date and time display.
+       * This function is called every second to keep the display current.
+       */
+      function updateDateTime() {
+        // Create a new Date object representing the current date and time
+        const currentDate = new Date();
+
+        // Format the date and time string using toLocaleString
+        // Options specify the format for each component of the date and time
+        const dateTimeString = currentDate.toLocaleString(undefined, {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit"
+        });
+
+        // Update the innerHTML of the datetime element
+        // Replace the first comma with a line break to separate date and time
+        document.getElementById("datetime").innerHTML = dateTimeString.replace(
+          ",",
+          ",<br>"
+        );
+      }
+
+      // Set up an interval to call updateDateTime every 1000 milliseconds (1 second)
+      setInterval(updateDateTime, 1000);
+
+      // Call updateDateTime immediately to display the time without waiting for the first interval
+      updateDateTime();
+    </script>
+  </body>
+</html>

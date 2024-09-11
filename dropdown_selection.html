@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dropdown Selection</title>
+    <style>
+      /* Styles for the body */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      /* Styles for the main container */
+      .container {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 2.5rem;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      /* Hover effect for the container */
+      .container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Styles for the label */
+      label {
+        font-weight: bold;
+        margin-right: 15px;
+        font-size: 18px;
+        color: #333;
+      }
+
+      /* Styles for the select dropdown */
+      select {
+        padding: 10px 15px;
+        font-size: 16px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        background-color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      /* Hover effect for the select dropdown */
+      select:hover {
+        border-color: #007bff;
+      }
+
+      /* Focus effect for the select dropdown */
+      select:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+      }
+
+      /* Styles for the selected item display */
+      #selectedItem {
+        margin-top: 1.5rem;
+        font-size: 20px;
+        color: #007bff;
+        font-weight: bold;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+      }
+
+      /* Show effect for the selected item display */
+      #selectedItem.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <label for="dropdown">Select a car:</label>
+      <select id="dropdown" onchange="displaySelectedItem()">
+        <option value="toyota">Toyota</option>
+        <option value="honda">Honda</option>
+        <option value="ford">Ford</option>
+        <option value="bmw">BMW</option>
+      </select>
+      <p id="selectedItem"></p>
+    </div>
+
+    <script>
+      /**
+       * Displays the selected item from the dropdown menu.
+       * This function is called when the user selects an option from the dropdown.
+       * It updates the text content of the 'selectedItem' element with the selected car name.
+       * The function also applies a CSS animation to show the selected item.
+       */
+      function displaySelectedItem() {
+        // Get the dropdown element
+        const dropdown = document.getElementById("dropdown");
+
+        // Get the text of the selected option
+        const selectedItem = dropdown.options[dropdown.selectedIndex].text;
+
+        // Get the element where the selected item will be displayed
+        const selectedItemElement = document.getElementById("selectedItem");
+
+        // Update the text content of the selected item element
+        selectedItemElement.textContent = `Selected car: ${selectedItem}`;
+
+        // Remove the 'show' class to reset the animation
+        selectedItemElement.classList.remove("show");
+
+        // Trigger a reflow to ensure the animation runs again
+        void selectedItemElement.offsetWidth;
+
+        // Add the 'show' class to trigger the animation
+        selectedItemElement.classList.add("show");
+      }
+    </script>
+  </body>
+</html>

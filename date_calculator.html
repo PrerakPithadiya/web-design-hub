@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Date Calculator</title>
+    <style>
+      /* Styles remain unchanged */
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #6dd5fa, #ff758c);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        max-width: 450px;
+        width: 100%;
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      h1 {
+        color: #2c3e50;
+        margin-bottom: 2rem;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      label {
+        display: block;
+        margin-bottom: 0.75rem;
+        color: #34495e;
+        font-weight: 600;
+        text-align: center;
+        font-size: 1.1rem;
+        width: 100%;
+      }
+      input {
+        width: 100%;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+        border: 2px solid #3498db;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+      input:focus {
+        outline: none;
+        border-color: #2980b9;
+        box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+        transform: translateY(-2px);
+      }
+      button {
+        background: linear-gradient(45deg, #3498db, #2980b9);
+        color: white;
+        border: none;
+        padding: 1.2rem 2.5rem;
+        font-size: 1.2rem;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 2px;
+        box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+      }
+      button:hover {
+        background: linear-gradient(45deg, #2980b9, #3498db);
+        transform: translateY(-3px);
+        box-shadow: 0 7px 20px rgba(52, 152, 219, 0.6);
+      }
+      button:active {
+        transform: translateY(-1px);
+      }
+      #result {
+        margin-top: 2rem;
+        font-weight: bold;
+        color: #2c3e50;
+        font-size: 1.3rem;
+        padding: 1.5rem;
+        background-color: rgba(236, 240, 241, 0.8);
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        width: 100%;
+        text-align: center;
+      }
+      #result:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Date Calculator</h1>
+      <label for="date1">Enter Date 1 (DD/MM/YY):</label>
+      <input type="text" id="date1" placeholder="DD/MM/YY" />
+      <label for="date2">Enter Date 2 (DD/MM/YY):</label>
+      <input type="text" id="date2" placeholder="DD/MM/YY" />
+      <button onclick="calculateDays()">Calculate Days</button>
+      <p id="result"></p>
+    </div>
+
+    <script>
+      /**
+       * Date Calculator
+       *
+       * This script calculates the number of days between two given dates.
+       *
+       * Design:
+       * - The application uses a simple HTML structure with input fields for dates and a button to trigger the calculation.
+       * - Styling is done using CSS to create an attractive and responsive user interface.
+       * - JavaScript is used to handle the date calculation logic.
+       *
+       * Implementation:
+       * - The calculateDays() function is called when the "Calculate Days" button is clicked.
+       * - It retrieves the input dates, converts them to Date objects, and calculates the difference in days.
+       * - The result is then displayed on the page.
+       *
+       * Usage Instructions:
+       * 1. Enter the first date in the "Date 1" input field in DD/MM/YY format.
+       * 2. Enter the second date in the "Date 2" input field in DD/MM/YY format.
+       * 3. Click the "Calculate Days" button to see the result.
+       * 4. The number of days between the two dates will be displayed below the button.
+       *
+       * Note: This calculator assumes dates are in the 21st century (2000-2099).
+       */
+
+      /**
+       * Calculates the number of days between two dates and displays the result.
+       */
+      function calculateDays() {
+        // Get input values
+        const date1Input = document.getElementById("date1").value;
+        const date2Input = document.getElementById("date2").value;
+
+        // Split the date strings into day, month, and year
+        const date1Parts = date1Input.split("/");
+        const date2Parts = date2Input.split("/");
+
+        // Create Date objects (assuming 21st century dates)
+        const date1 = new Date(
+          `20${date1Parts[2]}`,
+          date1Parts[1] - 1,
+          date1Parts[0]
+        );
+        const date2 = new Date(
+          `20${date2Parts[2]}`,
+          date2Parts[1] - 1,
+          date2Parts[0]
+        );
+
+        // Calculate the difference in milliseconds
+        const differenceInTime = date2.getTime() - date1.getTime();
+
+        // Convert milliseconds to days
+        const differenceInDays = differenceInTime / (1000 * 3600 * 24);
+
+        // Display the result
+        document.getElementById(
+          "result"
+        ).textContent = `Number of days between the two dates: ${differenceInDays}`;
+      }
+    </script>
+  </body>
+</html>
